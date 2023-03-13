@@ -7,7 +7,7 @@
 
 using namespace std;
 
-typedef vector<pair<int, float>> Node;
+typedef vector<pair<int, float>> Chain;
 
 vector<int> PullDigits(int value){
     vector<int> digits;
