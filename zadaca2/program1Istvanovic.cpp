@@ -11,6 +11,7 @@ typedef vector<pair<int, float>> Chain;
 
 vector<int> PullDigits(int value){
     vector<int> digits;
+    
     if(value == 0){
         return {0};
     }
