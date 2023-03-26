@@ -118,17 +118,6 @@ class BST
         NodeAdd(node1->right, node2->right);
     }
 
-    Node* buildTree(vector<int>& nodes, int start, int end, Node* parent) {
-        if (start > end)
-            return nullptr;
-        int mid = (start + end) / 2;
-        Node* node = new Node{nodes[mid], nullptr, nullptr, nullptr};
-        node->parent = parent;
-        node->left = buildTree(nodes, start, mid - 1, node);
-        node->right = buildTree(nodes, mid + 1, end, node);
-        return node;
-    }
-
 public:
     BST() : root(NULL) {}
 
