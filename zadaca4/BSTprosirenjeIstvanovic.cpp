@@ -216,7 +216,7 @@ int main() {
                                     //TEST CASE2: JESU STRUKTURALNO JEDNAKI
     T4.insert(3);
     T4.insert(2);
-    T4.insert(1);
+    T4.insert(6);
 
     if (structurallyEqual(T3, T4))
         cout << "T3 i T4 su strukturalno jednaki" << endl;
