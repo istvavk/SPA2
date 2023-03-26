@@ -161,35 +161,17 @@ public:
 
 // Zadatak1
 
-bool nodesEqual(Node* node1, Node* node2) {
-    // Ako su oba cvora NULL, vrati true
-    if (node1 == NULL && node2 == NULL) {
-        return true;
-    }
-    // Ako je samo jedan cvor NULL, vrati false
-    if (node1 == NULL || node2 == NULL) {
-        return false;
-    }
-    // Usporedi lijevo i desno podstablo
-    return nodesEqual(node1->left, node2->left) && nodesEqual(node1->right, node2->right);
-}
-
-int treeHeight(Node* root) {
+int countNodes(Node* root) {
     if (root == NULL) {
         return 0;
     }
-    int leftHeight = treeHeight(root->left);
-    int rightHeight = treeHeight(root->right);
-    return 1 + max(leftHeight, rightHeight);
+    return 1 + countNodes(root->left) + countNodes(root->right);
 }
 
 bool structurallyEqual(BST T1, BST T2) {
-    int height1 = treeHeight(T1.root);
-    int height2 = treeHeight(T2.root);
-    if (height1 != height2) {
-        return false;
-    }
-    return nodesEqual(T1.root, T2.root);
+    int count1 = countNodes(T1.root);
+    int count2 = countNodes(T2.root);
+    return count1 == count2;
 }
 
 // Zadatak2
