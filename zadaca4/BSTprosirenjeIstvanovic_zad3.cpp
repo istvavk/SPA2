@@ -246,6 +246,7 @@ int main()
     // zbroj
     T1.BSTadd(T1, T2).print();
     
+    cout << endl << endl;
     // nisu strukturalno jednaki
     
     BST T3;
