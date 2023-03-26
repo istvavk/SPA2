@@ -205,6 +205,12 @@ public:
             BST T3(T1);
             NodeAdd(T3.root, T2.root);
             return T3;
+        } else {
+            if (T1.root == nullptr) {
+                return T2;
+            } else {
+                return T1;
+            }
         }
     }
 };
@@ -239,5 +245,36 @@ int main()
 
     // zbroj
     T1.BSTadd(T1, T2).print();
+    
+    // nisu strukturalno jednaki
+    
+    BST T3;
+    T3.insert(5);
+    T3.insert(3);
+    T3.insert(1);
+    T3.insert(4);
+    T3.insert(7);
+    T3.insert(9);
+
+    T3.print();
+
+    cout << endl;
+
+    BST T4;
+    T4.insert(10);
+    T4.insert(5);
+    T4.insert(2);
+    T4.insert(8);
+    T4.insert(14);
+
+    T4.print();
+
+    cout << endl;
+
+    cout << T3.structurallyEqual(T3, T4) << endl;
+
+    BST T5 = T3.BSTadd(T3, T4);
+
+    T5.print();
 }
 
