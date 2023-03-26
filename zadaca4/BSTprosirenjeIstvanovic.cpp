@@ -174,8 +174,21 @@ bool nodesEqual(Node* node1, Node* node2) {
     return nodesEqual(node1->left, node2->left) && nodesEqual(node1->right, node2->right);
 }
 
+int treeHeight(Node* root) {
+    if (root == NULL) {
+        return 0;
+    }
+    int leftHeight = treeHeight(root->left);
+    int rightHeight = treeHeight(root->right);
+    return 1 + max(leftHeight, rightHeight);
+}
+
 bool structurallyEqual(BST T1, BST T2) {
-    // Usporedi korijene
+    int height1 = treeHeight(T1.root);
+    int height2 = treeHeight(T2.root);
+    if (height1 != height2) {
+        return false;
+    }
     return nodesEqual(T1.root, T2.root);
 }
 
@@ -207,6 +220,7 @@ int main() {
     T2.insert(3);
     T2.insert(1);
     T2.insert(2);
+    T2.insert(5);
 
     if (structurallyEqual(T1, T2))
         cout << "T1 i T2 su strukturalno jednaki" << endl;
