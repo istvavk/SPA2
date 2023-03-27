@@ -161,18 +161,18 @@ public:
 
 // Zadatak1
 
-bool nodesEqualHelper(Node* node1, Node* node2) {
+bool nodesEqual(Node *node1, Node *node2) {
     if (node1 == nullptr && node2 == nullptr) {
         return true;
     } else if (node1 == nullptr || node2 == nullptr) {
         return false;
     } else {
-        return nodesEqualHelper(node1->left, node2->left) && nodesEqualHelper(node1->right, node2->right);
+        return nodesEqual(node1->left, node2->left) && nodesEqual(node1->right, node2->right);
     }
 }
 
-bool structurallyEqual(BST& T1, BST& T2) {
-    return nodesEqualHelper(T1.root, T2.root);
+bool structurallyEqual(BST T1, BST T2) {
+    return nodesEqual(T1.root, T2.root);
 }
 
 // Zadatak2
@@ -196,14 +196,19 @@ BST nthPowerBST(BST T, int n)
 int main() {
     cout << "Zadatak 1:" << endl;
     BST T1, T2;
-    T1.insert(3);
-    T1.insert(2);
-    T1.insert(1);
-                                    //TEST CASE1: NISU STRUKTURALNO JEDNAKI
+    T1.insert(50);
+    T1.insert(25);
+    T1.insert(75);
+    T1.insert(10);
+    T1.insert(30);
+    T1.insert(100);
+                                    //TEST CASE1: JESU STRUKTURALNO JEDNAKI
+    T2.insert(6);
     T2.insert(3);
+    T2.insert(8);
     T2.insert(1);
-    T2.insert(2);
-    T2.insert(5);
+    T2.insert(4);
+    T2.insert(10);
 
     if (structurallyEqual(T1, T2))
         cout << "T1 i T2 su strukturalno jednaki" << endl;
@@ -211,13 +216,16 @@ int main() {
         cout << "T1 i T2 nisu strukturalno jednaki" << endl;
 
     BST T3, T4;
-    T3.insert(3);
-    T3.insert(2);
-    T3.insert(1);
-                                    //TEST CASE2: JESU STRUKTURALNO JEDNAKI
-    T4.insert(3);
-    T4.insert(2);
+    T3.insert(50);
+    T3.insert(25);
+    T3.insert(75);
+    T3.insert(20);
+    T3.insert(10);
+                                    //TEST CASE2: NISU STRUKTURALNO JEDNAKI
     T4.insert(6);
+    T4.insert(3);
+    T4.insert(8);
+    T4.insert(1);
 
     if (structurallyEqual(T3, T4))
         cout << "T3 i T4 su strukturalno jednaki" << endl;
