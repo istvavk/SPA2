@@ -161,17 +161,18 @@ public:
 
 // Zadatak1
 
-int countNodes(Node* root) {
-    if (root == NULL) {
-        return 0;
+bool nodesEqualHelper(Node* node1, Node* node2) {
+    if (node1 == nullptr && node2 == nullptr) {
+        return true;
+    } else if (node1 == nullptr || node2 == nullptr) {
+        return false;
+    } else {
+        return nodesEqualHelper(node1->left, node2->left) && nodesEqualHelper(node1->right, node2->right);
     }
-    return 1 + countNodes(root->left) + countNodes(root->right);
 }
 
-bool structurallyEqual(BST T1, BST T2) {
-    int count1 = countNodes(T1.root);
-    int count2 = countNodes(T2.root);
-    return count1 == count2;
+bool structurallyEqual(BST& T1, BST& T2) {
+    return nodesEqualHelper(T1.root, T2.root);
 }
 
 // Zadatak2
