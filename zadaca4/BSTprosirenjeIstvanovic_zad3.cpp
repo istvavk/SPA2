@@ -194,7 +194,8 @@ public:
             BST T3(T1);
             NodeAdd(T3.root, T2.root);
             return T3;
-        } else {
+        } 
+        else {
             if (T1.root == nullptr) {
                 return T2;
             } else {
