@@ -209,9 +209,9 @@ int main()
     BST T1;
     T1.insert(5);
     T1.insert(3);
+    T1.insert(7);
     T1.insert(1);
     T1.insert(4);
-    T1.insert(7);
     T1.insert(9);
 
     T1.print();
@@ -221,9 +221,9 @@ int main()
     BST T2;
     T2.insert(10);
     T2.insert(5);
+    T2.insert(14);
     T2.insert(2);
     T2.insert(8);
-    T2.insert(14);
     T2.insert(16);
 
     T2.print();
