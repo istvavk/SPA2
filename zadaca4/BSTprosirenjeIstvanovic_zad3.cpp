@@ -99,14 +99,13 @@ class BST
     }
 
     bool nodesEqual(Node *node1, Node *node2) {
-        if (node1 == nullptr && node2 == nullptr)
+        if (node1 == nullptr && node2 == nullptr) {
             return true;
-
-        if (node1 != nullptr && node2 != nullptr) {
-            return (nodesEqual(node1->left, node2->left) && nodesEqual(node1->right, node2->right));
+        } else if (node1 == nullptr || node2 == nullptr) {
+            return false;
+        } else {
+            return nodesEqual(node1->left, node2->left) && nodesEqual(node1->right, node2->right);
         }
-
-        return false;
     }
 
     void NodeAdd(Node *node1, Node *node2) {
